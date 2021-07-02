@@ -1,0 +1,171 @@
+// <МИКСИНЫ>==============================================
+@mixin anim($time, $delay) {
+  -webkit-transition: all $time ease $delay;
+  transition: all $time ease $delay;
+}
+@mixin anim_cubic($time, $delay) {
+  -webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+}
+@mixin flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0;
+}
+@mixin flexorder($val) {
+  -webkit-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  order: $val;
+}
+// </МИКСИНЫ>============================================
+
+// <ШРИФТЫ>==============================================
+
+// <ПОДКЛЮЧАЕМ ШРИФТЫ>===================================
+
+// *Пример подключение шрифт
+// @font-face
+//   font-family: 'Conv_Cocaine Nosejob'
+//   src: url('../fonts/Cocaine Nosejob.eot')
+//   src: local('☺'), url('../fonts/Cocaine Nosejob.woff') format('woff')
+//     url('../fonts/Cocaine Nosejob.ttf') format('truetype')
+//     url('../fonts/Cocaine Nosejob.svg') format('svg')
+//   font-weight: normal
+//   font-style: normal
+
+// </ПОДКЛЮЧАЕМ ШРИФТЫ>==================================
+
+// <ШРИФТ ПО УМОЛЧАНИЮ===================================
+$fontfamily: '';
+// </ШРИФТ ПО УМОЛЧАНИЮ==================================
+
+// </ШРИФТЫ>=============================================
+
+// <ПЕРЕМЕННЫЕ===========================================
+$minwidth: 320px;
+// todo Контейнер $mw
+$mw: 800;
+$md1: $mw + 12;
+$md2: 992.98;
+$md3: 767.98;
+$md4: 479.98;
+// </ПЕРЕМЕННЫЕ==========================================
+
+// <ОБНУЛЕНИЕБ ОБЩИЕ ПАРАМЕТРЫ===========================
+@import '_reset';
+html,
+body {
+  scroll-behavior: smooth;
+}
+// </ОБНУЛЕНИЕБ ОБЩИЕ ПАРАМЕТРЫ=========================
+
+// <ОБОЛОЧКА=============================================
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+}
+// </ОБОЛОЧКА============================================
+
+// <ОСНОВНАЯ СЕТКА========================================
+.container {
+  max-width: $mw + px;
+  margin: 0px auto;
+}
+// </ОСНОВНАЯ СЕТКА=======================================
+
+// <ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ========
+@import '_ibg';
+// @import '_header';
+// @import '_footer';
+// </ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ=======
+
+// <ОСНОВНОЙ КОД========================================
+
+body {
+  background: coral;
+}
+
+// =====================================================
+
+.products {
+  @include flex();
+  flex-wrap: wrap;
+}
+.product {
+  margin-top: 20px;
+  flex: 0 1 50%;
+  @include flex();
+  flex-wrap: wrap;
+  justify-content: center;
+  @media (max-width: 620px) {
+    flex: 0 1 100%;
+  }
+}
+.product__title {
+  flex: 0 1 100%;
+  font-size: 16px;
+  margin: 0px 0px 10px 0px;
+  text-align: center;
+}
+
+.input-div {
+  @include flex();
+  flex: 0 1 40%;
+  @media (max-width: 620px) {
+    flex: 0 1 50%;
+    justify-content: center;
+  }
+}
+// .product__input-weight {
+// }
+// .product__input-price {
+// }
+
+.test-input {
+  width: 100px;
+  margin-right: 10px;
+  font-size: 25px;
+  background: bisque;
+}
+.info {
+  font-size: 15px;
+  align-self: flex-end;
+}
+
+// Средняя секция
+.out {
+  flex: 0 1 100%;
+  min-height: 50px;
+  margin: 20px auto 0px auto;
+  @include flex();
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  @media (max-width: 620px) {
+    margin: 20px auto 0px auto;
+  }
+}
+.best-product {
+  background: cyan;
+  padding: 5px 10px;
+  width: auto;
+}
+.button {
+  padding: 5px 10px;
+  background: purple;
+  color: white;
+  margin: 0px 0px 0px 15px;
+  cursor: pointer;
+}
+
+// =====================================================
+
+// =====================================================
+
+// </ОСНОВНОЙ КОД=======================================
